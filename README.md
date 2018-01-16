@@ -10,8 +10,8 @@ I made another component to work with this, is CrowMediaGallery if you want show
 First you know need to install the project you have 3 way :
 
 - download on github [download zip](https://github.com/InitialCrow/crow-lightbox-reader/archive/master.zip).
-- clone on github `git clone `
-- install via npm `npm install crow-light-box-reader --save`
+- clone on github `git clone https://github.com/InitialCrow/crow-lightbox-reader `
+- install via npm `npm install crow-lightbox-reader --save`
 
 if you need just the component get the lib folder and put CrowLightBoxReader.min.js and CrowLightBoxReader.css in your project
 
