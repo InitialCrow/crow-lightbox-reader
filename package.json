@@ -1,6 +1,6 @@
 {
   "name": "crow-lightbox-reader",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Lightbox render for image video and song with control of description thumbnail in react ...",
   "main": "./lib/CrowLightBoxReader.min.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "comp": " rm -r -f ./lib; mkdir -p ./lib ; cp -f ./src/CrowLightBoxReader.css ./lib/  ; npx babel  ./src/CrowLightBoxReader.js -o ./lib/CrowLightBoxReader.js ; minify ./lib"
+    "comp": " rm -r -f ./lib; mkdir -p ./lib ; cp -f ./src/CrowLightBoxReader.css ./lib/  ; npx babel  ./src/CrowLightBoxReader.js -o ./lib/CrowLightBoxReader.js ; minify ./lib ; rm -f ./lib/CrowLightBoxReader.css; mv ./lib/CrowLightBoxReader.min.css ./lib/CrowLightBoxReader.css  "
   },
   "babel": {
     "presets": [

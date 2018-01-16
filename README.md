@@ -1,5 +1,5 @@
 ﻿# CrowLightBoxReader 
-v0.1.2
+v0.1.3
 
 
 Hi !! here we have react component I made, its a classic lightbox but we can read image video and song on same poolList of item.
@@ -11,9 +11,9 @@ First you know need to install the project you have 3 way :
 
 - download on github [download zip](https://github.com/InitialCrow/crow-lightbox-reader/archive/master.zip).
 - clone on github `git clone `
-- install via npm `npm install crow-light-box-reader`
+- install via npm `npm install crow-light-box-reader --save`
 
-if you need just the component get the lib folder and put CrowLightBoxReader.min.js and CrowLightBoxReader.min.css in your project
+if you need just the component get the lib folder and put CrowLightBoxReader.min.js and CrowLightBoxReader.css in your project
 
 else you can do `npm install` on directory if you clone from github to install dependencies to work on this component
 ## Use CrowLightBoxReader
@@ -23,11 +23,11 @@ To use we need :
 
 **load component**
 
-`import CrowLightBoxReader from 'CrowLightBoxReader' //or directory location` 
+`import CrowLightBoxReader from 'crow-lightbox-reader' //or directory location` 
 
 or
 
- `let CrowLightBoxReader = require('CrowLightBoxReader')//or directory location`
+ `let CrowLightBoxReader = require('crow-lightbox-reader')//or directory location`
 
 **use component**
 
@@ -35,7 +35,7 @@ I take simple exemple of use but you can import LightBox on container to
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import CrowLightBoxReader from './CrowLightBoxReader';
+    import CrowLightBoxReader from 'crow-lightbox-reader'; //or directory location
     
     const items = [
     	{
@@ -97,7 +97,7 @@ if you want change LightBox settings you can do like this
 
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import CrowLightBoxReader from './CrowLightBoxReader';
+    import CrowLightBoxReader from 'crow-lightbox-reader'; //or directory location
 
     const settings = { //this is settings configuration 
     	showPool : true, // if you want render thumbnail on lightBox
