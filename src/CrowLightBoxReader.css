@@ -1,5 +1,8 @@
 /* welcome to lightboxReader css its load from js to use this css only component is called*/
 
+.crow-hide{
+  display: none;
+}
 
 .crow-lightbox-reader-bg{
   

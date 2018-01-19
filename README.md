@@ -1,5 +1,5 @@
 ﻿# CrowLightBoxReader 
-v0.1.3
+v0.1.5
 
 
 Hi !! here we have react component I made, its a classic lightbox but we can read image video and song on same poolList of item.
@@ -106,6 +106,7 @@ if you want change LightBox settings you can do like this
     	showLightBox : true, // if you want to show the CrowLightBoxReader
     	showPagination : true, // if you want to show the pagination
     	showCloseBtn : true, // if you want to show close lightBox Button
+        nodeToHide : 'root' // put id of node if you want hide node content befor show lightbox
     	debug : false, // if you want to show debug messages
     }
     

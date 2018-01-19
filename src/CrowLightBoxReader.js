@@ -10,13 +10,16 @@ class CrowLightBoxReader extends Component {
     this.closeCallBack = props.closeCallBack || false //this is the close callBack we need to write to change state for render the lightbox
 
     // pass object settings to change lightbox configuration
-    this.showPool = props.settings.showPool || true //show thumbnail of pool in lightbox
-    this.showBtn = props.settings.showBtn || true // show next and prev button
-    this.showCloseBtn = props.settings.showCloseBtn || true // show close button
-    this.showDesc = props.settings.showDesc || true // show text descripton on lightbox
-    this.showPagination = props.settings.showPagination || true // show pagination of pool on lightbox
-    this.showLightBox = props.settings.showLightBox || false //show lightbox
-    this.debug = props.settings.debug || false // enable debug mode to show console msg
+    this.settings = props.settings || {}
+    this.showPool = this.settings.showPool || true //show thumbnail of pool in lightbox
+    this.showBtn = this.settings.showBtn || true // show next and prev button
+    this.showCloseBtn = this.settings.showCloseBtn || true // show close button
+    this.showDesc = this.settings.showDesc || true // show text descripton on lightbox
+    this.showPagination = this.settings.showPagination || true // show pagination of pool on lightbox
+    this.nodeToHide = this.settings.nodeToHide || false // hide node content before show the lightbox
+    this.showLightBox = this.settings.showLightBox || false //show lightbox
+    this.debug = this.settings.debug || false // enable debug mode to show console msg
+
     //construct props
     this.nodes={
       thumb : [],
@@ -40,7 +43,20 @@ class CrowLightBoxReader extends Component {
       this.nodes.thumb[this.isRead].classList.add('current')
     }
   }
+  deleteBody(){ // hide body and show lightbox
+    if(this.nodeToHide !== false){
+      let nodes = document.getElementById(this.nodeToHide).childNodes
+      console.log(nodes)
+      for(let i = 0; i< nodes.length; i++ ){
+        if(nodes[i].classList != undefined){
 
+          nodes[i].classList.add('crow-hide')
+        }
+      }
+     
+    }
+      
+  }
   closeLightBox(){ // go to close light box
     if(this.closeCallBack!==false && this.showLightBox !== false){
 
@@ -251,6 +267,7 @@ class CrowLightBoxReader extends Component {
   showRenderer(){ // render all render
     if(this.showLightBox !== false){
 
+      this.deleteBody()
       let render = []
       render.push(this.renderItemRenderer())
       render.push(this.renderPoolListThumb())

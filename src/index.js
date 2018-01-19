@@ -10,6 +10,7 @@ const settings = {
 	showBtn : true,
 	showDesc : true,
 	showLightBox : true,
+	nodeToHide : false,
 	debug : true,
 }
 
