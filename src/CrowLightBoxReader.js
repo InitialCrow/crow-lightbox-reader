@@ -22,9 +22,11 @@ class CrowLightBoxReader extends Component {
 
     //construct props
     this.nodes={
+      main : null,
       thumb : [],
       desc : null,
     }
+    this.poolHideNode=[]
     this.state={
       changeItem : false,
     }
@@ -42,20 +44,39 @@ class CrowLightBoxReader extends Component {
       this.nodes.desc.style.maxWidth = this.poolItems[this.isRead].width+"px"
       this.nodes.thumb[this.isRead].classList.add('current')
     }
+    if(this.nodeToHide !== false){
+      this.deleteBody()
+    }
   }
   deleteBody(){ // hide body and show lightbox
     if(this.nodeToHide !== false){
-      let nodes = document.getElementById(this.nodeToHide).childNodes
-      console.log(nodes)
-      for(let i = 0; i< nodes.length; i++ ){
-        if(nodes[i].classList != undefined){
-
-          nodes[i].classList.add('crow-hide')
-        }
+      let node = document.getElementById(this.nodeToHide)
+      node.classList.add('crow-hide')
+      while(node.firstChild){
+          this.poolHideNode.push(node.firstChild)
+          node.removeChild(node.firstChild)
       }
-     
+      node.prepend(this.nodes.main)
+      node.classList.remove('crow-hide')
+
     }
       
+  }
+  restoreBody(){// restore body for hidebody
+    if(this.nodeToHide !== false && this.poolHideNode.length>0){
+      let node = document.getElementById(this.nodeToHide)
+      node.classList.add('crow-hide')
+      while(node.firstChild){
+         
+          node.removeChild(node.firstChild)
+      }
+
+      this.poolHideNode.map((nodeC)=>{
+       node.appendChild(nodeC)
+      })
+      
+      node.classList.remove('crow-hide')
+    }
   }
   closeLightBox(){ // go to close light box
     if(this.closeCallBack!==false && this.showLightBox !== false){
@@ -65,8 +86,10 @@ class CrowLightBoxReader extends Component {
     if(this.showLightBox !== false){
       document.body.classList.remove('crow-lightbox-reader-bg')
       this.showLightBox = false
+      this.restoreBody()
       this.setState({renderItem : false })
     }
+
   }
 
   changeItem(index){ // change item on click of item pull 
@@ -267,12 +290,12 @@ class CrowLightBoxReader extends Component {
   showRenderer(){ // render all render
     if(this.showLightBox !== false){
 
-      this.deleteBody()
+      
       let render = []
       render.push(this.renderItemRenderer())
       render.push(this.renderPoolListThumb())
       return(
-        <div className="crow-lightbox-reader">
+        <div ref={(div)=>{this.nodes.main = div}} className="crow-lightbox-reader">
           {this.renderCloseBtn()}
           {render}
           
@@ -286,7 +309,9 @@ class CrowLightBoxReader extends Component {
   }
   render() {
     return (
-        this.showRenderer()
+      <div>
+        {this.showRenderer()}
+      </div>
     )
   }
 }

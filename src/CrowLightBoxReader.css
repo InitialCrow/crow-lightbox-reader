@@ -29,8 +29,6 @@
 }
 .crow-lightbox-reader .crow-lightbox-reader-render{
   clear: both;
-  
-  padding-top: 100px;
   margin: 0 auto;
   max-width: 1080px;
   max-height: 600px;
@@ -68,6 +66,8 @@
 .crow-lightbox-reader .lightbox-btn{
   color: white;
   font-size: 1.8em;
+  line-height: 4.5;
+  margin: 0;
 }
 .crow-lightbox-reader .crow-lightbox-reader-next:hover, .crow-lightbox-reader .crow-lightbox-reader-next:focus {
   background-color: rgba(0, 0, 0, 1);
@@ -84,7 +84,7 @@
   width: 50px;
   position: absolute;
   right: 0px ;
-  top : 300px;
+  top : 40%;
   z-index: 99;
   cursor: pointer;
 }
@@ -95,7 +95,7 @@
   width: 50px;
   position: absolute;
   left: 0px;
-  top : 300px;
+  top : 40%;
   z-index: 99;
   cursor: pointer;
 }
@@ -106,6 +106,7 @@
 
 }
 .crow-lightbox-reader .crow-lightbox-reader-pool-list .pool-item{
+  margin-top: 1em;
   display: inline-block;
   cursor: pointer;
 }

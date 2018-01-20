@@ -1,6 +1,6 @@
 {
   "name": "crow-lightbox-reader",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Lightbox render for image video and song with control of description thumbnail in react ...",
   "main": "./lib/CrowLightBoxReader.min.js",
   "scripts": {
