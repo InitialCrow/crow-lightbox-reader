@@ -25,6 +25,8 @@ class CrowLightBoxReader extends Component {
       main : null,
       thumb : [],
       desc : null,
+      video : null,
+      audio : null
     }
     this.poolHideNode=[]
     this.state={
@@ -58,6 +60,12 @@ class CrowLightBoxReader extends Component {
       }
       node.prepend(this.nodes.main)
       node.classList.remove('crow-hide')
+      if(this.nodes.video!==null){
+        this.nodes.video.play()
+      }
+      if(this.nodes.audio !== null){
+        this.nodes.audio.play()
+      }
 
     }
       
@@ -209,7 +217,7 @@ class CrowLightBoxReader extends Component {
         <div className="render-content">
           {this.renderDesc(item)}
           {this.renderBtn()}
-           <video  width={item.width} height={item.height} src={item.src} autoPlay controls></video>
+           <video ref={(video)=>{this.nodes.video = video}}  width={item.width} height={item.height} src={item.src} autoPlay controls ></video>
           {this.renderPagination()}
         </div>
        
@@ -221,7 +229,7 @@ class CrowLightBoxReader extends Component {
           {this.renderDesc(item)}
           {this.renderBtn()}
           <img  width={item.width} height={item.height} src={item.thumbSrc} alt="image of song reader"/>
-          <audio className="audio" src={item.src} autoPlay controls></audio>
+          <audio ref={(audio)=>{this.nodes.audio = audio}} className="audio" src={item.src} autoPlay controls></audio>
           {this.renderPagination()}
         </div>
       )

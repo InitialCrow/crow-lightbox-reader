@@ -1,5 +1,5 @@
 ﻿# CrowLightBoxReader 
-v0.1.6
+v0.1.7
 
 
 Hi !! here we have react component I made, its a classic lightbox but we can read image video and song on same poolList of item.
